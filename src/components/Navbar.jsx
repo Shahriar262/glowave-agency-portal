@@ -119,7 +119,7 @@ const Navbar = () => {
         <div className="navbar-end">
           <Link
             to="/contact"
-            className="btn btn-neutral btn-md rounded-xl px-8 text-xs font-bold uppercase tracking-widest shadow-lg"
+            className="btn bg-brand-blue text-white btn-md rounded-xl px-8 text-xs font-bold uppercase tracking-widest shadow-lg"
           >
             Hire Us
           </Link>

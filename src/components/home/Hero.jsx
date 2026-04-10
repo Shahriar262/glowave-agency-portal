@@ -141,7 +141,7 @@ const Hero = () => {
         >
           <Link
             to="/services"
-            className="w-full sm:w-auto bg-[#0f172a] text-white font-bold px-10 md:px-12 py-4 md:py-5 rounded-2xl shadow-xl hover:bg-brand-blue transition-all active:scale-95"
+            className="w-full sm:w-auto bg-brand-blue text-white font-bold px-10 md:px-12 py-4 md:py-5 rounded-2xl shadow-xl hover:bg-[#0f172a] transition-all active:scale-95"
           >
             Start a Project
           </Link>
