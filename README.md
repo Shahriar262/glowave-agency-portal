@@ -1,4 +1,4 @@
-# Glowave Creative Studio
+# Glowave Agency Portal
 
 A boutique creative agency landing page built with **React**, **Tailwind CSS**, and **Framer Motion**. Optimized for high-end UI/UX and smooth digital experiences.
 
