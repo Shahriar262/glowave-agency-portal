@@ -34,7 +34,7 @@ const RefundPolicy = () => {
   };
 
   return (
-    <div className="bg-[#F8FAFF] pt-32 pb-24 min-h-screen px-6">
+    <div className="bg-[#F8FAFF] pt-10 pb-24 min-h-screen px-6">
       
       <div className="max-w-4xl mx-auto bg-transparent">
         <motion.div 

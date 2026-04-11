@@ -91,7 +91,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden">
+    <section className="relative pt-8 flex items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.25]"
         style={{

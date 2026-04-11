@@ -30,7 +30,7 @@ export const blogs = [
 
 const Blog = () => {
   return (
-    <div className="pt-20 pb-24 min-h-screen">
+    <div className="pt-10 pb-24 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
