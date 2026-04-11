@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="bg-[#F8FAFF] pt-32 pb-24 min-h-screen">
+    <div className="bg-[#F8FAFF] pt-10 pb-24 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section */}
@@ -16,7 +16,7 @@ const Contact = () => {
         >
           <span className="text-blue-600 text-xs font-black uppercase tracking-[0.3em] mb-4 inline-block italic">Get in Touch</span>
           <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none mb-8">
-            Let's start a <br /> <span className="text-slate-300">Conversation.</span>
+            Let's start a <br /> <span className="text-brand-blue">Conversation.</span>
           </h1>
         </motion.div>
 
