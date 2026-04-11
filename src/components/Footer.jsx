@@ -71,9 +71,9 @@ const Footer = () => {
             <div className="flex flex-col gap-5 col-span-2 md:col-span-1 border-t md:border-t-0 pt-8 md:pt-0 border-slate-50">
               <h6 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Legal</h6>
               <div className="flex flex-col gap-3">
-                <Link to="#" className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors">Privacy Policy</Link>
-                <Link to="#" className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors">Terms of Use</Link>
-                <Link to="#" className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors">Cookie Policy</Link>
+                <Link to="/privacy" className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors">Privacy Policy</Link>
+                <Link to="terms" className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors">Terms of Use</Link>
+                <Link to="/refund" className="text-sm font-bold text-slate-700 hover:text-blue-600 transition-colors">Refund Policy</Link>
               </div>
             </div>
           </div>

@@ -9,7 +9,7 @@ import OurProcess from '../components/home/OurProcess';
 import Pricing from '../components/home/Pricing';
 import Testimonials from '../components/home/Testimonials';
 import FAQ from '../components/home/FAQ';
-import CTA from '../components/home/CTA';
+import Newsletter from '../components/home/Newsletter';
 
 const Home = () => {
     return (
@@ -24,7 +24,7 @@ const Home = () => {
             <Pricing />
             <Testimonials />
             <FAQ />
-            <CTA />
+            <Newsletter />
         </div>
     );
 };
