@@ -75,7 +75,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative  flex items-center justify-center overflow-hidden">
+    <section className="relative flex items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.25]"
         style={{
@@ -90,11 +90,19 @@ const Hero = () => {
       {icons.map((icon, index) => (
         <motion.div
           key={index}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false }}
           className={`absolute p-3 md:p-4 bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-slate-100 z-0 
             ${icon.mobile ? "flex" : "hidden lg:flex"} 
             ${icon.pos} ${icon.color} ${icon.size}`}
-          {...floatingAnimation}
-          transition={{ ...floatingAnimation.transition, delay: icon.delay }}
+          animate={floatingAnimation.animate}
+          transition={{ 
+            ...floatingAnimation.transition, 
+            delay: icon.delay,
+            opacity: { duration: 0.5 },
+            scale: { duration: 0.5 } 
+          }}
         >
           <icon.component />
         </motion.div>
@@ -103,7 +111,8 @@ const Hero = () => {
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           className="inline-flex items-center gap-3 px-5 py-1.5 mb-10 bg-white border border-slate-200 rounded-full shadow-sm"
         >
           <div className="h-1.5 w-1.5 rounded-full bg-brand-blue animate-pulse" />
@@ -114,7 +123,8 @@ const Hero = () => {
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-6xl md:text-[80px] font-extrabold text-[#0f172a] tracking-tight md:tracking-[-0.02em] leading-[1.15] md:leading-[1.1] mb-10"
         >
@@ -125,7 +135,8 @@ const Hero = () => {
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ delay: 0.2, duration: 0.8 }}
           className="text-base md:text-[21px] text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed md:leading-[1.6] mb-14"
         >
@@ -135,7 +146,8 @@ const Hero = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
           transition={{ delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8"
         >

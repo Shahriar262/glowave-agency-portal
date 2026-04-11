@@ -14,7 +14,7 @@ const Services = () => {
       bgColor: "bg-[#FFEBE7]",
       borderColor: "border-orange-100",
       icon: mikeIcon,
-      iconPos: "-top-5 right-1 md:-right-7 w-30  md:w-40",
+      iconPos: "-top-5 right-1 md:-right-7 w-30 md:w-40",
       checkBg: "bg-orange-500"
     },
     {
@@ -39,26 +39,60 @@ const Services = () => {
     }
   ];
 
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, 
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] } 
+    },
+  };
+
   return (
     <section className="py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header Area */}
-        <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0f172a] tracking-tight mb-6">
+        {/* Header Area with Animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }} 
+          transition={{ duration: 0.8 }}
+          className="text-center mb-24"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0f172a] mb-6 italic">
             Web projects that create <br className="hidden md:block" /> meaningful impact
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto font-medium">
             We plan, design, and refine websites that feel calm, confident, and commercially useful.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Services Grid with Stagger Effect */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           {serviceData.map((item) => (
-            <div 
+            <motion.div 
               key={item.id}
-              className={`relative h-[320px] rounded-[2.5rem] p-12 border ${item.borderColor} ${item.bgColor} overflow-visible`}
+              variants={itemVariants}
+              whileHover={{ y: -10 }} 
+              className={`relative h-[320px] rounded-[2.5rem] p-12 border ${item.borderColor} ${item.bgColor} overflow-visible group`}
             >
               {/* Content Area */}
               <div className="relative z-10 flex flex-col h-full">
@@ -76,14 +110,21 @@ const Services = () => {
                 </ul>
               </div>
 
-              {/* Draggable 3D Icons positioning */}
+              {/* 3D Icons with separate floating animation */}
               <motion.div
                 drag
                 dragSnapToOrigin
                 dragElastic={0.12}
-                whileHover={{ scale: 1.05, cursor: 'grab' }}
-                whileTap={{ scale: 0.95, cursor: 'grabbing' }}
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                animate={{ 
+                  y: [0, -10, 0], 
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                whileHover={{ scale: 1.1, cursor: 'grab' }}
+                whileTap={{ scale: 0.9, cursor: 'grabbing' }}
                 className={`absolute ${item.iconPos} z-20 select-none drop-shadow-2xl`}
               >
                 <img 
@@ -93,9 +134,9 @@ const Services = () => {
                   draggable="false"
                 />
               </motion.div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
