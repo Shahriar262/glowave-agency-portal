@@ -3,56 +3,74 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../../context/LanguageContext";
+import avt1 from "../../assets/avt1.jpg";
+import avt2 from "../../assets/avt2.jpg";
+import avt3 from "../../assets/avt3.jpg";
+import avt4 from "../../assets/avt4.webp";
+import avt5 from "../../assets/avt5.jpg";
+import avt6 from "../../assets/avt6.jpg";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-const testimonials = [
-  {
-    name: "Marcus Thorne",
-    role: "Lead Frontend Engineer",
-    content:
-      "The React architecture they built is incredibly scalable. Our page load speed improved by 40% after the migration.",
-    avatar: "https://i.pravatar.cc/150?u=1",
-  },
-  {
-    name: "Elena Rodriguez",
-    role: "Technical Product Manager",
-    content:
-      "Most teams struggle with design nuance, but they nailed the Framer Motion interactions perfectly.",
-    avatar: "https://i.pravatar.cc/150?u=2",
-  },
-  {
-    name: "Julian Voss",
-    role: "CTO @ Voss Media",
-    content:
-      "Zero friction. They handled our API integrations with surgical precision and met every single deadline.",
-    avatar: "https://i.pravatar.cc/150?u=3",
-  },
-  {
-    name: "Sarah Chen",
-    role: "Founder & CEO",
-    content:
-      "Technical SEO was a huge priority for us. The site structure they delivered is perfect for our ranking strategy.",
-    avatar: "https://i.pravatar.cc/150?u=4",
-  },
-  {
-    name: "David Miller",
-    role: "Operations Director",
-    content:
-      "Clean code and predictable delivery. It's rare to find this level of consistency in modern development.",
-    avatar: "https://i.pravatar.cc/150?u=5",
-  },
-  {
-    name: "Amara Okoro",
-    role: "Senior UX Researcher",
-    content:
-      "Our conversion rate jumped significantly after the redesign. The UI feels premium and truly intuitive.",
-    avatar: "https://i.pravatar.cc/150?u=6",
-  },
-];
-
 const Testimonials = () => {
+  const { lang } = useLanguage();
+
+  const testimonials = [
+    {
+      name: "Marcus Thorne",
+      role: lang === "en" ? "Lead Frontend Engineer" : "লিড ফ্রন্টএন্ড ইঞ্জিনিয়ার",
+      content: lang === "en" 
+        ? "The React architecture they built is incredibly scalable. Our page load speed improved by 40% after the migration." 
+        : "তাদের তৈরি করা রিঅ্যাক্ট আর্কিটেকচার অবিশ্বাস্যভাবে স্কেলেবল। মাইগ্রেশনের পর আমাদের পেজ লোড স্পিড ৪০% বৃদ্ধি পেয়েছে।",
+      avatar: avt1,
+    },
+    {
+      name: "Alex Rodriguez",
+      role: lang === "en" ? "Technical Product Manager" : "টেকনিক্যাল প্রোডাক্ট ম্যানেজার",
+      content: lang === "en" 
+        ? "Most teams struggle with design nuance, but they nailed the Framer Motion interactions perfectly." 
+        : "বেশিরভাগ টিম ডিজাইনের সূক্ষ্ম বিষয়গুলো নিয়ে হিমশিম খায়, কিন্তু তারা ফ্রেমার মোশন ইন্টারঅ্যাকশনগুলো নিখুঁতভাবে ফুটিয়ে তুলেছে।",
+      avatar: avt2,
+    },
+    {
+      name: "Julian Voss",
+      role: lang === "en" ? "CTO @ Voss Media" : "সিটিও @ ভস মিডিয়া",
+      content: lang === "en" 
+        ? "Zero friction. They handled our API integrations with surgical precision and met every single deadline." 
+        : "কোনো জটিলতা ছাড়াই তারা আমাদের এপিআই ইন্টিগ্রেশনগুলো অত্যন্ত নির্ভুলভাবে সম্পন্ন করেছে এবং প্রতিটি ডেডলাইন মেনে চলেছে।",
+      avatar: avt3,
+    },
+    {
+      name: "Sarah Chen",
+      role: lang === "en" ? "Founder & CEO" : "ফাউন্ডার এবং সিইও",
+      content: lang === "en" 
+        ? "Technical SEO was a huge priority for us. The site structure they delivered is perfect for our ranking strategy." 
+        : "টেকনিক্যাল এসইও আমাদের জন্য বড় অগ্রাধিকার ছিল। তারা যে সাইট স্ট্রাকচার দিয়েছে তা আমাদের র‍্যাঙ্কিং স্ট্র্যাটেজির জন্য একদম পারফেক্ট।",
+      avatar: avt4,
+    },
+    {
+      name: "David Miller",
+      role: lang === "en" ? "Operations Director" : "অপারেশনস ডিরেক্টর",
+      content: lang === "en" 
+        ? "Clean code and predictable delivery. It's rare to find this level of consistency in modern development." 
+        : "ক্লিন কোড এবং সময়মতো ডেলিভারি। আধুনিক ডেভেলপমেন্টে এই পর্যায়ের কনসিস্টেন্সি পাওয়া সত্যিই দুর্লভ।",
+      avatar: avt5,
+    },
+    {
+      name: "Amara Okoro",
+      role: lang === "en" ? "Senior UX Researcher" : "সিনিয়র ইউএক্স রিসার্চার",
+      content: lang === "en" 
+        ? "Our conversion rate jumped significantly after the redesign. The UI feels premium and truly intuitive." 
+        : "রিডিজাইনের পর আমাদের কনভার্সন রেট উল্লেখযোগ্যভাবে বেড়েছে। ইউআই (UI) এখন প্রিমিয়াম এবং সত্যিই ইনটুইটিভ মনে হয়।",
+      avatar: avt6,
+    },
+  ];
+
+  const title = lang === "en" ? "Global feedback by " : "বিশেষজ্ঞদের ";
+  const highlight = lang === "en" ? "Experts" : "গ্লোবাল ফিডব্যাক";
+
   return (
     <section className="py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -60,10 +78,10 @@ const Testimonials = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             className="text-4xl text-center md:text-6xl font-black text-slate-900 tracking-tight"
           >
-            Global feedback by <span className="text-brand-blue">Experts</span>
+            {title}<span className="text-brand-blue">{highlight}</span>
           </motion.h2>
         </div>
 

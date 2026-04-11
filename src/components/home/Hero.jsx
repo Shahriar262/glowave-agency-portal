@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
+import { useLanguage } from "../../context/LanguageContext";
 import {
   FiTarget,
   FiZap,
@@ -10,7 +11,22 @@ import {
   FiSmartphone,
 } from "react-icons/fi";
 
+
 const Hero = () => {
+  const { lang } = useLanguage();
+
+  const text = {
+    badge: lang === "en" ? "Digital Excellence Redefined" : "ডিজিটাল এক্সিলেন্সের নতুন সংজ্ঞা",
+    titleStart: lang === "en" ? "Architecting " : "",
+    titleHighlight: lang === "en" ? "impactful" : "প্রভাবশালী",
+    titleEnd: lang === "en" ? " digital narratives." : " ডিজিটাল ন্যারেটিভ তৈরি করছি।",
+    desc: lang === "en" 
+      ? "Glowave is a design-first studio focusing on high-end aesthetics and seamless functionality for brands that dare to lead."
+      : "গ্লোওয়েভ একটি ডিজাইন-ফার্স্ট স্টুডিও যা হাই-এন্ড নান্দনিকতা এবং নিরবচ্ছিন্ন কার্যকারিতার মাধ্যমে ব্র্যান্ডগুলোকে এগিয়ে নিয়ে যায়।",
+    btnPrimary: lang === "en" ? "Start a Project" : "প্রজেক্ট শুরু করুন",
+    btnSecondary: lang === "en" ? "Our Story" : "আমাদের গল্প"
+  };
+
   const floatingAnimation = {
     animate: {
       y: [0, -12, 0],
@@ -117,7 +133,7 @@ const Hero = () => {
         >
           <div className="h-1.5 w-1.5 rounded-full bg-brand-blue animate-pulse" />
           <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500">
-            Digital Excellence Redefined
+            {text.badge}
           </span>
         </motion.div>
 
@@ -128,9 +144,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-6xl md:text-[80px] font-extrabold text-[#0f172a] tracking-tight md:tracking-[-0.02em] leading-[1.15] md:leading-[1.1] mb-10"
         >
-          Architecting <span className="text-brand-blue">impactful</span>{" "}
-          <br className="hidden md:block" />
-          digital narratives.
+          {text.titleStart}<span className="text-brand-blue">{text.titleHighlight}</span>{text.titleEnd}
         </motion.h1>
 
         <motion.p
@@ -140,8 +154,7 @@ const Hero = () => {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="text-base md:text-[21px] text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed md:leading-[1.6] mb-14"
         >
-          Glowave is a design-first studio focusing on high-end aesthetics and
-          seamless functionality for brands that dare to lead.
+          {text.desc}
         </motion.p>
 
         <motion.div
@@ -155,10 +168,10 @@ const Hero = () => {
             to="/services"
             className="w-full sm:w-auto bg-brand-blue text-white font-bold px-10 md:px-12 py-4 md:py-5 rounded-2xl shadow-xl hover:bg-[#0f172a] transition-all active:scale-95"
           >
-            Start a Project
+            {text.btnPrimary}
           </Link>
           <button className="w-full sm:w-auto text-[#0f172a] font-bold px-8 py-4 flex items-center justify-center gap-2 group hover:opacity-70 transition-opacity">
-            Our Story
+            {text.btnSecondary}
             <span className="group-hover:translate-x-1.5 transition-transform">
               →
             </span>

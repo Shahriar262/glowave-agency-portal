@@ -1,28 +1,44 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
+import { useLanguage } from "../../context/LanguageContext";
 
 const FAQ = () => {
+  const { lang } = useLanguage();
   const [openIndex, setOpenIndex] = useState(null);
 
   const questions = [
     {
-      q: "How long does a typical project take?",
-      a: "Usually, it takes 2-4 weeks. We prioritize quality and clean code to ensure a premium result for your business.",
+      q: lang === "en" ? "How long does a typical project take?" : "একটি প্রজেক্ট শেষ করতে কত সময় লাগে?",
+      a: lang === "en" 
+        ? "Usually, it takes 2-4 weeks. We prioritize quality and clean code to ensure a premium result for your business."
+        : "সাধারণত ২-৪ সপ্তাহ সময় লাগে। আমরা কোডের কোয়ালিটি এবং ক্লিন কোডকে প্রাধান্য দিই যাতে আপনার ব্যবসার জন্য একটি প্রিমিয়াম আউটপুট নিশ্চিত হয়।",
     },
     {
-      q: "Do you offer post-launch support?",
-      a: "Yes, we provide 30 days of free technical support to fix any bugs and ensure everything is running smoothly.",
+      q: lang === "en" ? "Do you offer post-launch support?" : "লঞ্চ করার পর আপনারা কি সাপোর্ট প্রদান করেন?",
+      a: lang === "en"
+        ? "Yes, we provide 30 days of free technical support to fix any bugs and ensure everything is running smoothly."
+        : "হ্যাঁ, আমরা ৩০ দিনের ফ্রি টেকনিক্যাল সাপোর্ট দিই যাতে কোনো বাগ থাকলে তা ফিক্স করা যায় এবং সবকিছু ঠিকঠাক চলে।",
     },
     {
-      q: "Will my website be mobile-friendly?",
-      a: "Absolutely. Every project we build is 'Mobile-First,' ensuring a seamless experience on all devices.",
+      q: lang === "en" ? "Will my website be mobile-friendly?" : "আমার ওয়েবসাইটটি কি মোবাইল-ফ্রেন্ডলি হবে?",
+      a: lang === "en"
+        ? "Absolutely. Every project we build is 'Mobile-First,' ensuring a seamless experience on all devices."
+        : "অবশ্যই। আমাদের প্রতিটি প্রজেক্ট 'মোবাইল-ফার্স্ট' পদ্ধতিতে তৈরি করা হয়, যা সব ডিভাইসে চমৎকার অভিজ্ঞতা নিশ্চিত করে।",
     },
     {
-      q: "Which technologies do you use?",
-      a: "We specialize in modern technologies like React.js, Next.js, and Tailwind CSS for high performance.",
+      q: lang === "en" ? "Which technologies do you use?" : "আপনারা কোন কোন টেকনোলজি ব্যবহার করেন?",
+      a: lang === "en"
+        ? "We specialize in modern technologies like React.js, Next.js, and Tailwind CSS for high performance."
+        : "আমরা হাই পারফরম্যান্স নিশ্চিত করতে React.js, Next.js এবং Tailwind CSS-এর মতো আধুনিক টেকনোলজি ব্যবহার করি।",
     },
   ];
+
+  const titleText = lang === "en" ? (
+    <>Questions <br /> & Answers.</>
+  ) : (
+    <>প্রশ্ন <br /> ও উত্তর।</>
+  );
 
   return (
     <section className="py-24 bg-[#F8FAFF]">
@@ -36,11 +52,10 @@ const FAQ = () => {
           className="mb-16 border-l-4 border-blue-600 pl-6"
         >
           <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight">
-            Questions <br /> & Answers.
+            {titleText}
           </h2>
         </motion.div>
 
-        {/* FAQ List */}
         <div className="space-y-4">
           {questions.map((item, i) => (
             <motion.div

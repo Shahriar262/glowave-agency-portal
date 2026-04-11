@@ -40,7 +40,7 @@ const Blog = () => {
           <span className="text-blue-600 text-xs font-black uppercase tracking-[0.3em] mb-4 inline-block italic">
             Our Journal
           </span>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none mb-8">
+          <h1 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none mb-8">
             Digital <span className="text-brand-blue">Insights.</span>
           </h1>
         </motion.div>

@@ -10,56 +10,83 @@ import {
   Rocket,
   ArrowUpRight,
 } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 import CTA from "../components/services/CTA";
 
 const Services = () => {
+  const { lang } = useLanguage();
+
   const processes = [
     {
       step: "01",
-      title: "Discovery",
-      desc: "Understanding your vision and setting a strategic roadmap for growth.",
+      title: lang === "en" ? "Discovery" : "ডিসকভারি",
+      desc: lang === "en" 
+        ? "Understanding your vision and setting a strategic roadmap for growth."
+        : "আপনার ভিশন বোঝা এবং প্রবৃদ্ধির জন্য একটি কৌশলগত রোডম্যাপ তৈরি করা।",
       icon: <Search size={22} />,
     },
     {
       step: "02",
-      title: "Design",
-      desc: "Crafting world-class UI/UX interfaces that prioritize conversion and beauty.",
+      title: lang === "en" ? "Design" : "ডিজাইন",
+      desc: lang === "en"
+        ? "Crafting world-class UI/UX interfaces that prioritize conversion and beauty."
+        : "কনভার্সন এবং নান্দনিকতাকে প্রাধান্য দিয়ে বিশ্বমানের UI/UX ইন্টারফেস তৈরি করা।",
       icon: <PenTool size={22} />,
     },
     {
       step: "03",
-      title: "Build",
-      desc: "Developing high-performance applications with React and Next.js.",
+      title: lang === "en" ? "Build" : "ডেভেলপমেন্ট",
+      desc: lang === "en"
+        ? "Developing high-performance applications with React and Next.js."
+        : "React এবং Next.js ব্যবহার করে হাই-পারফরম্যান্স অ্যাপ্লিকেশন তৈরি করা।",
       icon: <Code size={22} />,
     },
     {
       step: "04",
-      title: "Scale",
-      desc: "Launching your product and providing dedicated support for success.",
+      title: lang === "en" ? "Scale" : "স্কেলিং",
+      desc: lang === "en"
+        ? "Launching your product and providing dedicated support for success."
+        : "আপনার প্রোডাক্ট লঞ্চ করা এবং সাফল্যের জন্য ডেডিকেটেড সাপোর্ট প্রদান করা।",
       icon: <Rocket size={22} />,
     },
   ];
 
   const serviceList = [
     {
-      title: "UI/UX Strategy",
+      title: lang === "en" ? "UI/UX Strategy" : "UI/UX স্ট্র্যাটেজি",
       icon: <Target />,
-      text: "User-centric designs built on psychological principles to maximize conversion.",
+      text: lang === "en"
+        ? "User-centric designs built on psychological principles to maximize conversion."
+        : "কনভার্সন বাড়ানোর জন্য মনস্তাত্ত্বিক নীতির ওপর ভিত্তি করে ইউজার-সেন্ট্রিক ডিজাইন।",
     },
     {
-      title: "Product Dev",
+      title: lang === "en" ? "Product Dev" : "প্রোডাক্ট ডেভেলপমেন্ট",
       icon: <Zap />,
-      text: "Custom, scalable web applications developed with clean and efficient code.",
+      text: lang === "en"
+        ? "Custom, scalable web applications developed with clean and efficient code."
+        : "ক্লিন এবং দক্ষ কোডের মাধ্যমে কাস্টম ও স্কেলেবল ওয়েব অ্যাপ্লিকেশন ডেভেলপমেন্ট।",
     },
     {
-      title: "SaaS Branding",
+      title: lang === "en" ? "SaaS Branding" : "SaaS ব্র্যান্ডিং",
       icon: <Layers />,
-      text: "Iconic visual identities that give your company a competitive edge in tech.",
+      text: lang === "en"
+        ? "Iconic visual identities that give your company a competitive edge in tech."
+        : "আইকনিক ভিজ্যুয়াল আইডেন্টিটি যা আপনার কোম্পানিকে টেক ওয়ার্ল্ডে এগিয়ে রাখবে।",
     },
   ];
 
+  const headerText = {
+    badge: lang === "en" ? "Our Expertise" : "আমাদের দক্ষতা",
+    titleStart: lang === "en" ? "Expertise that " : "দক্ষতা যা ",
+    titleEnd: lang === "en" ? "Drives Results." : "ফলাফল নিশ্চিত করে।",
+    desc: lang === "en"
+      ? "We deliver premium digital solutions tailored for the next generation of high-growth SaaS and tech companies."
+      : "আমরা পরবর্তী প্রজন্মের হাই-গ্রোথ SaaS এবং টেক কোম্পানিগুলোর জন্য প্রিমিয়াম ডিজিটাল সলিউশন প্রদান করি।",
+    processTitle: lang === "en" ? "The Process." : "কাজের ধাপসমূহ।"
+  };
+
   return (
-    <div className="pt-20 pb-24">
+    <div className="pt-10 pb-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Page Header */}
         <motion.div
@@ -71,16 +98,15 @@ const Services = () => {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-8 bg-blue-600"></div>
             <span className="text-blue-600 text-xs font-black uppercase tracking-[0.3em]">
-              Our Expertise
+              {headerText.badge}
             </span>
           </div>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-900 leading-[0.9] mb-8">
-            Expertise that <br />{" "}
-            <span className="text-brand-blue">Drives Results.</span>
+          <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.9] mb-8">
+            {headerText.titleStart} <br />{" "}
+            <span className="text-brand-blue">{headerText.titleEnd}</span>
           </h1>
           <p className="max-w-xl text-slate-500 text-lg font-medium leading-relaxed">
-            We deliver premium digital solutions tailored for the next
-            generation of high-growth SaaS and tech companies.
+            {headerText.desc}
           </p>
         </motion.div>
 
@@ -116,7 +142,7 @@ const Services = () => {
         <div className="mb-32">
           <div className="mb-16">
             <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter">
-              The Process.
+              {headerText.processTitle}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

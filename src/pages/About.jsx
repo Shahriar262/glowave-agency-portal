@@ -1,27 +1,64 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Users, Target, Award, Rocket } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 import aboutImg from "../assets/about-1.avif";
 import team1 from "../assets/team-1.webp";
 import team2 from "../assets/team-2.webp";
 import team3 from "../assets/team-3.jpg";
 
 const About = () => {
+  const { lang } = useLanguage();
+
   const stats = [
-    { label: "Projects Completed", value: "120+", icon: <Rocket size={20} /> },
-    { label: "Happy Clients", value: "80+", icon: <Users size={20} /> },
-    { label: "Design Awards", value: "15+", icon: <Award size={20} /> },
-    { label: "Success Rate", value: "98%", icon: <Target size={20} /> },
+    { 
+      label: lang === "en" ? "Projects Completed" : "প্রজেক্ট সম্পন্ন", 
+      value: "120+", 
+      icon: <Rocket size={20} /> 
+    },
+    { 
+      label: lang === "en" ? "Happy Clients" : "সন্তুষ্ট ক্লায়েন্ট", 
+      value: "80+", 
+      icon: <Users size={20} /> 
+    },
+    { 
+      label: lang === "en" ? "Design Awards" : "ডিজাইন অ্যাওয়ার্ড", 
+      value: "15+", 
+      icon: <Award size={20} /> 
+    },
+    { 
+      label: lang === "en" ? "Success Rate" : "সাফল্যের হার", 
+      value: "98%", 
+      icon: <Target size={20} /> 
+    },
   ];
 
   const teams = [
-    { name: "John Doe", role: "Creative Director", img: team1 },
-    { name: "Sarah Smith", role: "Lead Designer", img: team2 },
-    { name: "Alex Johnson", role: "Tech Architect", img: team3 },
+    { name: "John Doe", role: lang === "en" ? "Creative Director" : "ক্রিয়েটিভ ডিরেক্টর", img: team1 },
+    { name: "Sarah Smith", role: lang === "en" ? "Lead Designer" : "লিড ডিজাইনার", img: team2 },
+    { name: "Alex Johnson", role: lang === "en" ? "Tech Architect" : "টেক আর্কিটেক্ট", img: team3 },
   ];
 
+  const text = {
+    badge: lang === "en" ? "Our Story" : "আমাদের গল্প",
+    titleStart: lang === "en" ? "We build digital " : "আমরা তৈরি করি ডিজিটাল ",
+    titleHighlight: lang === "en" ? "Masterpieces." : "মাস্টারপিস।",
+    desc: lang === "en" 
+      ? "Glowave is a boutique creative studio focused on high-end design and scalable technology. We help modern brands dominate their markets through world-class digital experiences."
+      : "গ্লোওয়েভ একটি বুটিক ক্রিয়েটিভ স্টুডিও যা হাই-এন্ড ডিজাইন এবং স্কেলেবল টেকনোলজির ওপর কাজ করে। আমরা বিশ্বমানের ডিজিটাল অভিজ্ঞতার মাধ্যমে আধুনিক ব্র্যান্ডগুলোকে বাজারে আধিপত্য বিস্তারে সহায়তা করি।",
+    strategyTitle: lang === "en" ? "Strategy over " : "অনুমানের চেয়ে ",
+    strategyHighlight: lang === "en" ? "Guesswork." : "কৌশল বড়।",
+    strategyDesc: lang === "en"
+      ? "Every pixel we place and every line of code we write is driven by a deep understanding of user psychology and business goals."
+      : "আমাদের প্রতিটি পিক্সেল এবং কোডের প্রতিটি লাইন ইউজার সাইকোলজি এবং বিজনেস গোল-এর গভীর উপলব্ধির মাধ্যমে তৈরি করা হয়।",
+    points: lang === "en" 
+      ? ["Data-Driven Design", "Scalable Performance", "User-Centric Approach"] 
+      : ["ডেটা-ড্রিভেন ডিজাইন", "স্কেলেবল পারফরম্যান্স", "ইউজার-সেন্ট্রিক অ্যাপ্রোচ"],
+    teamTitle: lang === "en" ? "The Minds Behind." : "আমাদের কারিগররা।"
+  };
+
   return (
-    <div className="pt-15 pb-24">
+    <div className="pt-10 pb-24">
       <div className="max-w-7xl mx-auto px-6">
         {/* Hero Section */}
         <motion.div
@@ -31,16 +68,14 @@ const About = () => {
           className="mb-32 max-w-4xl"
         >
           <span className="text-blue-600 text-xs font-black uppercase tracking-[0.3em] mb-4 inline-block italic">
-            Our Story
+            {text.badge}
           </span>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-10">
-            We build digital <br />{" "}
-            <span className="text-brand-blue">Masterpieces.</span>
+          <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.9] mb-10">
+            {text.titleStart} <br />{" "}
+            <span className="text-brand-blue">{text.titleHighlight}</span>
           </h1>
           <p className="text-slate-500 text-xl font-medium leading-relaxed">
-            Glowave is a boutique creative studio focused on high-end design and
-            scalable technology. We help modern brands dominate their markets
-            through world-class digital experiences.
+            {text.desc}
           </p>
         </motion.div>
 
@@ -90,19 +125,14 @@ const About = () => {
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              Strategy over <br />{" "}
-              <span className="text-blue-600">Guesswork.</span>
+              {text.strategyTitle} <br />{" "}
+              <span className="text-blue-600">{text.strategyHighlight}</span>
             </h2>
             <p className="text-slate-500 text-lg font-medium leading-relaxed">
-              Every pixel we place and every line of code we write is driven by
-              a deep understanding of user psychology and business goals.
+              {text.strategyDesc}
             </p>
             <div className="space-y-4">
-              {[
-                "Data-Driven Design",
-                "Scalable Performance",
-                "User-Centric Approach",
-              ].map((item, idx) => (
+              {text.points.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-4">
                   <div className="w-2 h-2 rounded-full bg-blue-600" />
                   <span className="text-slate-900 font-bold uppercase text-xs tracking-widest">
@@ -117,7 +147,7 @@ const About = () => {
         {/* Team Section */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-16">
-            The Minds Behind.
+            {text.teamTitle}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teams.map((member, i) => (
