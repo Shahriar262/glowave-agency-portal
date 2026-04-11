@@ -54,6 +54,7 @@ const Navbar = () => {
               <li><NavLink to="/">Home</NavLink></li>
               <li><NavLink to="/services">Services</NavLink></li>
               <li><NavLink to="/blog">Blog</NavLink></li>
+              <li><NavLink to="/about">About</NavLink></li>
               <li><NavLink to="/contact">Contact</NavLink></li>
             </ul>
           </div>
@@ -100,6 +101,16 @@ const Navbar = () => {
                 }
               >
                 Blog
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "text-[#0062bd] font-bold text-base" : "font-medium text-base"
+                }
+              >
+                About
               </NavLink>
             </li>
             <li>

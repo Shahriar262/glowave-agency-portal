@@ -11,7 +11,9 @@ import {
   FiShield,
   FiAward,
   FiMousePointer,
+  FiArrowUpRight,
 } from "react-icons/fi";
+import { Link } from "react-router";
 
 const AboutSection = () => {
   const fadeInUp = {
@@ -40,10 +42,20 @@ const AboutSection = () => {
             We design websites that{" "}
             <span className="text-brand-blue">speak with confidence.</span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-500 font-medium leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-500 font-medium mb-5 leading-relaxed">
             We partner with creatives and startups to clarify complex ideas and
             build digital experiences that feel alive and trusted.
           </p>
+
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 font-bold text-slate-900 hover:text-brand-blue transition-colors duration-300 group"
+          >
+            <span className="border-b-2 border-slate-900 group-hover:border-brand-blue pb-0.5">
+              Read our full story
+            </span>
+            <FiArrowUpRight className="text-xl group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
         </motion.div>
 
         {/* Card Layout */}

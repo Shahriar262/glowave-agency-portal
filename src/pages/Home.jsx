@@ -2,8 +2,14 @@ import React from 'react';
 import Hero from '../components/home/Hero';
 import MarqueeSection from '../components/home/MarqueeSection';
 import Services from '../components/home/Services';
-import ProjectSlider from '../components/home/ImageSlider';
+import ImageSlider from '../components/home/ImageSlider';
 import AboutSection from '../components/home/AboutSection';
+import Features from '../components/home/Features';
+import OurProcess from '../components/home/OurProcess';
+import Pricing from '../components/home/Pricing';
+import Testimonials from '../components/home/Testimonials';
+import FAQ from '../components/home/FAQ';
+import CTA from '../components/home/CTA';
 
 const Home = () => {
     return (
@@ -11,8 +17,14 @@ const Home = () => {
             <Hero />
             <MarqueeSection />
             <Services />
-            <ProjectSlider />
+            <ImageSlider />
             <AboutSection />
+            <Features />
+            <OurProcess />
+            <Pricing />
+            <Testimonials />
+            <FAQ />
+            <CTA />
         </div>
     );
 };
